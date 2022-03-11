@@ -1,0 +1,15 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+rootProject.name = "MVVM_MVI"
+include ':app'
