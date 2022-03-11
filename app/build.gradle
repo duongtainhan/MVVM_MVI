@@ -30,8 +30,17 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            kotlinOptions {
+                freeCompilerArgs = [
+                        '-Xno-param-assertions',
+                        '-Xno-call-assertions',
+                        '-Xno-receiver-assertions'
+                ]
+            }
         }
     }
 
@@ -52,7 +61,7 @@ android {
 
     externalNativeBuild {
         cmake {
-            //path "CMakeLists.txt"
+            path "CMakeLists.txt"
         }
     }
 

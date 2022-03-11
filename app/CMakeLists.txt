@@ -7,11 +7,11 @@ cmake_minimum_required(VERSION 3.10.2)
 #     System.loadLibrary("app-values");
 # The lib name in both places must match.
 add_library( app-values
-             SHARED
-             src/main/cpp/app-values.cpp )
+        SHARED
+        src/main/cpp/app-values.cpp )
 
 find_library(log-lib
-             log )
+        log )
 
 # Specifies a path to native header files.
 include_directories(src/main/cpp/include/)
@@ -21,8 +21,8 @@ include_directories(src/main/cpp/include/)
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       app-values
+        app-values
 
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib} )
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib} )

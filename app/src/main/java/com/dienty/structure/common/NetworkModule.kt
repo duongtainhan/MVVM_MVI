@@ -24,10 +24,9 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val API_TIME_OUT = 10L
-    const val BASE_URL = "https://random-data-api.com/api/"
 
     init {
-        //System.loadLibrary("app-values")
+        System.loadLibrary("app-values")
     }
 
     @DefaultInterceptor
@@ -50,7 +49,7 @@ object NetworkModule {
         httpClient.authenticator(Authenticator.NONE)
         httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(getBaseUrl())
             .client(httpClient.build())
             .addConverterFactory(converterFactory)
             .addCallAdapterFactory(adapterFactory)
